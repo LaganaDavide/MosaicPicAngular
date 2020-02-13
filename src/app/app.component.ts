@@ -13,8 +13,8 @@ export class AppComponent {
   mainImgPixel = []; //average of pixel colour of the rectangles of main image
   cardImgsPixel = []; //average of pixel colour of the cards selected
   cradImgElem = []; //javascript element of the card image
-  numRec = 25; // number of rectangle which the main image must been divide
-
+  numRec = 50; // number of rectangle which the main image must been divide
+  result = "";
   //select the main image
   preview(files) {
     this.mainImgPixel = []
@@ -90,7 +90,7 @@ export class AppComponent {
             temp = temp + Math.abs(this.mainImgPixel[i][j].red - this.cardImgsPixel[z].red);
             temp = temp + Math.abs(this.mainImgPixel[i][j].green - this.cardImgsPixel[z].green);
             temp = temp + Math.abs(this.mainImgPixel[i][j].blue - this.cardImgsPixel[z].blue);
-            //temp = temp + Math.abs(this.mainImgPixel[i][j].alpha - this.cardImgsPixel[z].alpha);
+            temp = temp + Math.abs(this.mainImgPixel[i][j].alpha - this.cardImgsPixel[z].alpha);
             if (temp < prossimity){
               prossimity = temp;
               sel = z;
@@ -100,7 +100,8 @@ export class AppComponent {
           hidden_ctx.drawImage(this.cradImgElem[sel],i*cardwidth,j*cardHeight,cardwidth, cardHeight);
         }
       }
-      document.body.appendChild(canvas);
+      //document.body.appendChild(canvas);
+      this.result = canvas.toDataURL("image/png");
     };
     image.src = this.mainImg;   
   }

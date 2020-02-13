@@ -17,8 +17,8 @@
     </div>
 </div>
 <br>
-<img [src]="mainImg" height="200" *ngIf="mainImg">
-<h3 style="text-align: center;">Select multiple image for the cards (use CRTL)</h3>
+<img class="center" [src]="mainImg" height="200" *ngIf="mainImg">
+<h3 style="text-align: center;">Select multiple images for the cards (use CRTL)</h3>
 
 <div class="input-group mb-3" style="width: 50%;left: 25%;">
     <div class="input-group-prepend">
@@ -44,5 +44,6 @@
         <button class="btn btn-primary btn-lg" (click)="createMosaic()">create mosaic</button>
     </div>
 </div>
+<img class="center"  src="{{result}}"   height="500"  >
 <!-- <button class="btn btn-primary" (click)="test()">test</button>-->
 <router-outlet></router-outlet>
